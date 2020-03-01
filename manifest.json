@@ -1,20 +1,21 @@
 {
-    "background": {
-        "persistent": true,
-        "scripts": [ "background.js" ]
-    },
-    "manifest_version": 2,
-    "name": "unfucks webms on imgur",
-    "permissions": [
-        "*://i.imgur.com/*", 
-        "*://i.4cdn.org/*", 
-        "*://pbs.twimg.com/*",
-        
-        "*://stat.7gogo.jp/*",
-        "*://stat.ameba.jp/*",
+  "name": "unfucks webms on imgur",
+  "version": "0.0.1",
+  "manifest_version": 2,
+  "permissions": [
+    "*://i.imgur.com/*",
+    "*://i.4cdn.org/*",
+    "*://pbs.twimg.com/*",
 
-        "*://1e100.link/*",
-        "*://jump.2ch.net/*",
-        "webRequest", "webRequestBlocking" ],
-    "version": "0.0.1"
+    "*://stat.7gogo.jp/*",
+    "*://stat.ameba.jp/*",
+
+    "*://1e100.link/*",
+    "*://jump.2ch.net/*",
+    "webRequest", "webRequestBlocking"
+  ],
+  "background": {
+    "persistent": true,
+    "scripts": [ "background.js" ]
+  }
 }
