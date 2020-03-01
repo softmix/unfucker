@@ -1,0 +1,12 @@
+{
+  "addons": {
+    "unfucker@example.com": {
+      "updates": [
+        {
+          "version": "0.0.6",
+          "update_link": "https://github.com/softmix/unfucker/releases/download/0.0.6/unfucker.xpi"
+        }
+      ]
+    }
+  }
+}
