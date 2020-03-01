@@ -1,6 +1,6 @@
 {
   "name": "unfucker",
-  "version": "0.0.6",
+  "version": "0.1.0",
   "manifest_version": 2,
   "permissions": [
     "*://i.imgur.com/*",
