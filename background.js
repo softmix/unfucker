@@ -27,6 +27,26 @@ chrome.webRequest.onBeforeRequest.addListener(
 );
 
 chrome.webRequest.onBeforeRequest.addListener(
+  async details => {
+    let redirectUrl = null;
+
+    if ((match = details.url.match(/^https?:\/\/gfycat.com\/([a-z]+)\-?.*$/))) {
+      gfyid = match[1];
+
+      redirectUrl = await fetch("https://api.gfycat.com/v1/gfycats/" + gfyid)
+        .then(response => response.json())
+        .then(json => json.gfyItem.mp4Url)
+        .catch(error => console.log(error));
+
+      console.log("Unfuck: " + details.url + " =>" + redirectUrl);
+      return { redirectUrl: redirectUrl };
+    }
+  },
+  { urls: ["*://gfycat.com/*"], types: ["main_frame"] },
+  ["blocking"]
+);
+
+chrome.webRequest.onBeforeRequest.addListener(
   details => {
     redirectUrl = details.url.replace(/^(.*\.jpg)(\:large|)?$/, "$1:orig");
 
