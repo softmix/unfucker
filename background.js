@@ -3,7 +3,7 @@ chrome.webRequest.onBeforeRequest.addListener(
     redirectUrl = details.url.replace(/^http:\/\/(.*)$/, "https://$1");
 
     if (details.url != redirectUrl) {
-      console.log("Unfuck: " + details.url + " =>" + redirectUrl);
+      console.log("Unfuck: " + details.url + " => " + redirectUrl);
       return { redirectUrl: redirectUrl };
     }
   },
@@ -18,7 +18,7 @@ chrome.webRequest.onBeforeRequest.addListener(
       .replace(/^(.*)\.gifv$/, "$1.mp4");
 
     if (details.url != redirectUrl) {
-      console.log("Unfuck: " + details.url + " =>" + redirectUrl);
+      console.log("Unfuck: " + details.url + " => " + redirectUrl);
       return { redirectUrl: redirectUrl };
     }
   },
@@ -38,7 +38,7 @@ chrome.webRequest.onBeforeRequest.addListener(
         .then(json => json.gfyItem.mp4Url)
         .catch(error => console.log(error));
 
-      console.log("Unfuck: " + details.url + " =>" + redirectUrl);
+      console.log("Unfuck: " + details.url + " => " + redirectUrl);
       return { redirectUrl: redirectUrl };
     }
   },
@@ -51,7 +51,7 @@ chrome.webRequest.onBeforeRequest.addListener(
     redirectUrl = details.url.replace(/^(.*\.jpg)(\:large|)?$/, "$1:orig");
 
     if (details.url != redirectUrl) {
-      console.log("Unfuck: " + details.url + " =>" + redirectUrl);
+      console.log("Unfuck: " + details.url + " => " + redirectUrl);
       return { redirectUrl: redirectUrl };
     }
   },
@@ -64,7 +64,7 @@ chrome.webRequest.onBeforeRequest.addListener(
     redirectUrl = details.url.replace(/(1e100.link\/)/, "");
 
     if (details.url != redirectUrl) {
-      console.log("Unfuck: " + details.url + " =>" + redirectUrl);
+      console.log("Unfuck: " + details.url + " => " + redirectUrl);
       return { redirectUrl: redirectUrl };
     }
   },
@@ -77,7 +77,7 @@ chrome.webRequest.onBeforeRequest.addListener(
     redirectUrl = details.url.replace(/(l.moapi.net\/)/, "");
 
     if (details.url != redirectUrl) {
-      console.log("Unfuck: " + details.url + " =>" + redirectUrl);
+      console.log("Unfuck: " + details.url + " => " + redirectUrl);
       return { redirectUrl: redirectUrl };
     }
   },
@@ -90,7 +90,7 @@ chrome.webRequest.onBeforeRequest.addListener(
     redirectUrl = details.url.replace(/(.*:\/\/jump.2ch.net\/\?)/, "");
 
     if (details.url != redirectUrl) {
-      console.log("Unfuck: " + details.url + " =>" + redirectUrl);
+      console.log("Unfuck: " + details.url + " => " + redirectUrl);
       return { redirectUrl: redirectUrl };
     }
   },
@@ -103,7 +103,7 @@ chrome.webRequest.onBeforeRequest.addListener(
     redirectUrl = details.url.replace(/(.*:\/\/l.moapi.net\/\?)/, "");
 
     if (details.url != redirectUrl) {
-      console.log("Unfuck: " + details.url + " =>" + redirectUrl);
+      console.log("Unfuck: " + details.url + " => " + redirectUrl);
       return { redirectUrl: redirectUrl };
     }
   },
