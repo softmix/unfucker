@@ -74,6 +74,19 @@ chrome.webRequest.onBeforeRequest.addListener(
 
 chrome.webRequest.onBeforeRequest.addListener(
   details => {
+    redirectUrl = details.url.replace(/(2ch.io\/)/, "");
+
+    if (details.url != redirectUrl) {
+      console.log("Unfuck: " + details.url + " => " + redirectUrl);
+      return { redirectUrl: redirectUrl };
+    }
+  },
+  { urls: ["*://2ch.io/*"] },
+  ["blocking"]
+);
+
+chrome.webRequest.onBeforeRequest.addListener(
+  details => {
     redirectUrl = details.url.replace(/(l.moapi.net\/)/, "");
 
     if (details.url != redirectUrl) {
