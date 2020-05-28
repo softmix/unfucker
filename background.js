@@ -152,3 +152,17 @@ chrome.webRequest.onBeforeSendHeaders.addListener(
   { urls: ["*://i.imgur.com/*.mp4"] },
   ["blocking", "requestHeaders"]
 );
+
+chrome.webRequest.onBeforeSendHeaders.addListener(
+  (details) => {
+    for (var i = 0; i < details.requestHeaders.length; ++i) {
+      if (details.requestHeaders[i].name === "Accept") {
+        details.requestHeaders[i].value = "image/webp,*/*";
+        break;
+      }
+    }
+    return { requestHeaders: details.requestHeaders };
+  },
+  { urls: ["*://*.media.tumblr.com/*"], types: ["main_frame"] },
+  ["blocking", "requestHeaders"]
+);
