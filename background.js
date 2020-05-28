@@ -1,5 +1,5 @@
 chrome.webRequest.onBeforeRequest.addListener(
-  details => {
+  (details) => {
     redirectUrl = details.url.replace(/^http:\/\/(.*)$/, "https://$1");
 
     if (details.url != redirectUrl) {
@@ -12,7 +12,7 @@ chrome.webRequest.onBeforeRequest.addListener(
 );
 
 chrome.webRequest.onBeforeRequest.addListener(
-  details => {
+  (details) => {
     redirectUrl = details.url
       .replace(/^http:\/\/(.*)$/, "https://$1")
       .replace(/^(.*)\.gifv$/, "$1.mp4");
@@ -27,16 +27,16 @@ chrome.webRequest.onBeforeRequest.addListener(
 );
 
 chrome.webRequest.onBeforeRequest.addListener(
-  async details => {
+  async (details) => {
     let redirectUrl = null;
 
     if ((match = details.url.match(/^https?:\/\/gfycat.com\/([a-z]+)\-?.*$/))) {
       gfyid = match[1];
 
       redirectUrl = await fetch("https://api.gfycat.com/v1/gfycats/" + gfyid)
-        .then(response => response.json())
-        .then(json => json.gfyItem.mp4Url)
-        .catch(error => console.log(error));
+        .then((response) => response.json())
+        .then((json) => json.gfyItem.mp4Url)
+        .catch((error) => console.log(error));
 
       console.log("Unfuck: " + details.url + " => " + redirectUrl);
       return { redirectUrl: redirectUrl };
@@ -47,7 +47,7 @@ chrome.webRequest.onBeforeRequest.addListener(
 );
 
 chrome.webRequest.onBeforeRequest.addListener(
-  details => {
+  (details) => {
     redirectUrl = details.url.replace(/^(.*\.jpg)(\:large|)?$/, "$1:orig");
 
     if (details.url != redirectUrl) {
@@ -60,7 +60,7 @@ chrome.webRequest.onBeforeRequest.addListener(
 );
 
 chrome.webRequest.onBeforeRequest.addListener(
-  details => {
+  (details) => {
     redirectUrl = details.url.replace(/(1e100.link\/)/, "");
 
     if (details.url != redirectUrl) {
@@ -73,7 +73,7 @@ chrome.webRequest.onBeforeRequest.addListener(
 );
 
 chrome.webRequest.onBeforeRequest.addListener(
-  details => {
+  (details) => {
     redirectUrl = details.url.replace(/(2ch.io\/)/, "");
 
     if (details.url != redirectUrl) {
@@ -86,7 +86,7 @@ chrome.webRequest.onBeforeRequest.addListener(
 );
 
 chrome.webRequest.onBeforeRequest.addListener(
-  details => {
+  (details) => {
     redirectUrl = details.url.replace(/(l.moapi.net\/)/, "");
 
     if (details.url != redirectUrl) {
@@ -99,7 +99,7 @@ chrome.webRequest.onBeforeRequest.addListener(
 );
 
 chrome.webRequest.onBeforeRequest.addListener(
-  details => {
+  (details) => {
     redirectUrl = details.url.replace(/(.*:\/\/jump.2ch.net\/\?)/, "");
 
     if (details.url != redirectUrl) {
@@ -112,7 +112,7 @@ chrome.webRequest.onBeforeRequest.addListener(
 );
 
 chrome.webRequest.onBeforeRequest.addListener(
-  details => {
+  (details) => {
     redirectUrl = details.url.replace(/(.*:\/\/l.moapi.net\/\?)/, "");
 
     if (details.url != redirectUrl) {
@@ -125,7 +125,7 @@ chrome.webRequest.onBeforeRequest.addListener(
 );
 
 chrome.webRequest.onBeforeSendHeaders.addListener(
-  details => {
+  (details) => {
     for (var i = 0; i < details.requestHeaders.length; ++i) {
       if (details.requestHeaders[i].name === "Referer") {
         details.requestHeaders.splice(i, 1);
@@ -140,7 +140,7 @@ chrome.webRequest.onBeforeSendHeaders.addListener(
 );
 
 chrome.webRequest.onBeforeSendHeaders.addListener(
-  details => {
+  (details) => {
     for (var i = 0; i < details.requestHeaders.length; ++i) {
       if (details.requestHeaders[i].name === "User-Agent") {
         details.requestHeaders.splice(i, 1);
