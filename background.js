@@ -47,6 +47,35 @@ chrome.webRequest.onBeforeRequest.addListener(
 );
 
 chrome.webRequest.onBeforeRequest.addListener(
+  async (details) => {
+    let redirectUrl = null;
+
+    if (
+      (match = details.url.match(
+        /.*redgifs.com\/(..\/)?((watch|detail)\/)+(\w+).*/
+      ))
+    ) {
+      gfyid = match[4];
+
+      redirectUrl = await fetch("https://api.redgifs.com/v1/gfycats/" + gfyid)
+        .then((response) => response.json())
+        .then((json) => json.gfyItem.mp4Url)
+        .catch((error) => console.log(error));
+
+      if (redirectUrl !== details.url) {
+        console.log("Unfuck: " + details.url + " => " + redirectUrl);
+        return { redirectUrl: redirectUrl };
+      }
+    }
+  },
+  {
+    urls: ["*://www.redgifs.com/*", "*://redgifs.com/*"],
+    types: ["main_frame"],
+  },
+  ["blocking"]
+);
+
+chrome.webRequest.onBeforeRequest.addListener(
   (details) => {
     redirectUrl = details.url.replace(/^(.*\.jpg)(\:large|)?$/, "$1:orig");
 
