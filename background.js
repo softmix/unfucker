@@ -192,6 +192,21 @@ chrome.webRequest.onBeforeSendHeaders.addListener(
     }
     return { requestHeaders: details.requestHeaders };
   },
-  { urls: ["*://*.media.tumblr.com/*"], types: ["main_frame"] },
+  {
+    urls: ["*://*.media.tumblr.com/*", "*://transfer.sh/*"],
+    types: ["main_frame"],
+  },
   ["blocking", "requestHeaders"]
+);
+
+chrome.webRequest.onHeadersReceived.addListener(
+  (details) => {
+    return {
+      responseHeaders: details.responseHeaders.filter((header) => {
+        return header.name.toLowerCase() !== "content-disposition";
+      }),
+    };
+  },
+  { urls: ["*://transfer.sh/*"] },
+  ["blocking", "responseHeaders"]
 );
