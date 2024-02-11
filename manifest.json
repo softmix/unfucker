@@ -11,21 +11,21 @@
     "*://redgifs.com/*",
     "*://*.redgifs.com/*",
     "*://*.media.tumblr.com/*",
-
     "*://stat.7gogo.jp/*",
     "*://stat.ameba.jp/*",
-
     "*://1e100.link/*",
     "*://l.moapi.net/*",
     "*://2ch.io/*",
     "*://jump.2ch.net/*",
-
     "*://transfer.sh/*",
-    "webRequest", "webRequestBlocking"
+    "webRequest",
+    "webRequestBlocking"
   ],
   "background": {
     "persistent": true,
-    "scripts": [ "background.js" ]
+    "scripts": [
+      "background.js"
+    ]
   },
   "browser_specific_settings": {
     "gecko": {
