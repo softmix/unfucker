@@ -3,8 +3,8 @@
     "unfucker@example.com": {
       "updates": [
         {
-          "version": "0.1.6",
-          "update_link": "https://github.com/softmix/unfucker/releases/download/0.1.6/unfucker.xpi"
+          "version": "0.1.7",
+          "update_link": "https://github.com/softmix/unfucker/releases/download/0.1.7/unfucker.xpi"
         }
       ]
     }

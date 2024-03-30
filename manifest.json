@@ -1,6 +1,6 @@
 {
   "name": "unfucker",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "manifest_version": 2,
   "permissions": [
     "*://i.imgur.com/*",
@@ -19,6 +19,7 @@
     "*://jump.2ch.net/*",
     "*://transfer.sh/*",
     "*://i.redd.it/*",
+    "*://external-preview.redd.it/*",
     "webRequest",
     "webRequestBlocking"
   ],

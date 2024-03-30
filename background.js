@@ -193,7 +193,7 @@ chrome.webRequest.onBeforeSendHeaders.addListener(
     return { requestHeaders: details.requestHeaders }
   },
   {
-    urls: ["*://*.media.tumblr.com/*", "*://transfer.sh/*", "*://i.redd.it/*"],
+    urls: ["*://*.media.tumblr.com/*", "*://transfer.sh/*", "*://i.redd.it/*", "*://external-preview.redd.it/*"],
     types: ["main_frame"],
   },
   ["blocking", "requestHeaders"]
